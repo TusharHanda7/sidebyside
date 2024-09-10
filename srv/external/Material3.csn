@@ -1,0 +1,163 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.1.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "Material3": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "Material3.Customer": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.searchable": "true",
+   "@sap.content.version": "1",
+   "@sap.label": "Projection View",
+   "elements": {
+    "Partner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Partner",
+     "@sap.quickinfo": "Business Partner Number",
+     "notNull": true
+    },
+    "Bu_Group": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Grouping",
+     "@sap.quickinfo": "Business Partner Grouping"
+    },
+    "Title": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Title",
+     "@sap.quickinfo": "Form-of-Address Key"
+    },
+    "FirstName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "First name",
+     "@sap.quickinfo": "First name of business partner (person)"
+    },
+    "LastName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Last name",
+     "@sap.quickinfo": "Last name of business partner (person)"
+    },
+    "City": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "City"
+    },
+    "Country": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Country/Region",
+     "@sap.quickinfo": "Country/Region for Telephone/Fax Number"
+    },
+    "Pincode": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Postal Code"
+    },
+    "Region": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Region",
+     "@sap.quickinfo": "Region (State, Province, County)"
+    },
+    "Street": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "Street",
+     "@sap.quickinfo": "Street and House Number"
+    },
+    "PhoneNumber": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.label": "Telephone 1",
+     "@sap.quickinfo": "First telephone number"
+    },
+    "Email": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "E-Mail Address",
+     "@sap.quickinfo": "E-Mail Address Search Field"
+    },
+    "to_Vehicle": {
+     "type": "cds.Composition",
+     "target": "Material3.Vehicle",
+     "keys": []
+    }
+   }
+  },
+  "Material3.Vehicle": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Vehicle",
+   "elements": {
+    "Platecode": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plate code",
+     "notNull": true
+    },
+    "Platenum": {
+     "key": true,
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plate number",
+     "notNull": true
+    },
+    "Partner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Customer",
+     "@sap.quickinfo": "Customer Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Manufacture": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manufacturer"
+    },
+    "Model": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Model"
+    },
+    "to_Customer": {
+     "type": "cds.Association",
+     "target": "Material3.Customer",
+     "keys": []
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,269 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.1.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "Customer2": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "Customer2.Customer": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.searchable": "true",
+   "@sap.content.version": "1",
+   "@sap.label": "Projection View",
+   "elements": {
+    "Partner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Partner",
+     "@sap.quickinfo": "Business Partner Number",
+     "notNull": true
+    },
+    "Bu_Group": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Grouping",
+     "@sap.quickinfo": "Business Partner Grouping"
+    },
+    "Title": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Title",
+     "@sap.quickinfo": "Form-of-Address Key"
+    },
+    "FirstName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "First name",
+     "@sap.quickinfo": "First name of business partner (person)"
+    },
+    "LastName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Last name",
+     "@sap.quickinfo": "Last name of business partner (person)"
+    },
+    "City": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "City"
+    },
+    "Country": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Country/Region",
+     "@sap.quickinfo": "Country/Region for Telephone/Fax Number"
+    },
+    "Pincode": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Postal Code"
+    },
+    "Region": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Region",
+     "@sap.quickinfo": "Region (State, Province, County)"
+    },
+    "Street": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "Street",
+     "@sap.quickinfo": "Street and House Number"
+    },
+    "PhoneNumber": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.label": "Telephone 1",
+     "@sap.quickinfo": "First telephone number"
+    },
+    "Email": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "E-Mail Address",
+     "@sap.quickinfo": "E-Mail Address Search Field"
+    },
+    "to_Vehicle": {
+     "type": "cds.Composition",
+     "target": "Customer2.Vehicle",
+     "keys": []
+    }
+   }
+  },
+  "Customer2.Material": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Material CDS",
+   "elements": {
+    "Material": {
+     "key": true,
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.text": "Material_Text",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number",
+     "notNull": true
+    },
+    "Material_Text": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Material Description",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaterialType": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material type"
+    },
+    "MaterialGroup": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Group"
+    },
+    "MaterialBaseUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Base Unit of Measure",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "MaterialGrossWeight": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "MaterialWeightUnit",
+     "@sap.label": "Gross weight"
+    },
+    "MaterialNetWeight": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "MaterialWeightUnit",
+     "@sap.label": "Net weight"
+    },
+    "MaterialWeightUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Weight unit",
+     "@sap.quickinfo": "Weight Unit",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "MaterialManufacturerNumber": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manufacturer",
+     "@sap.quickinfo": "Manufacturer number"
+    },
+    "MaterialManufacturerPartNumber": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Mfr Part Number",
+     "@sap.quickinfo": "Manufacturer Part Number"
+    },
+    "AuthorizationGroup": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Authorization Group"
+    },
+    "IsBatchManagementRequired": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Batch Management",
+     "@sap.quickinfo": "Batch Management Requirement Indicator"
+    },
+    "werks": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "lgort": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage location"
+    }
+   }
+  },
+  "Customer2.Vehicle": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Vehicle",
+   "elements": {
+    "Platecode": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plate code",
+     "notNull": true
+    },
+    "Platenum": {
+     "key": true,
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plate number",
+     "notNull": true
+    },
+    "Partner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Customer",
+     "@sap.quickinfo": "Customer Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Manufacture": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manufacturer"
+    },
+    "Model": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Model"
+    },
+    "to_Customer": {
+     "type": "cds.Association",
+     "target": "Customer2.Customer",
+     "keys": []
+    }
+   }
+  }
+ }
+}
